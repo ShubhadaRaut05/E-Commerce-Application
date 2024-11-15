@@ -1,0 +1,23 @@
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: "gateway"
+
+    # metrics_path defaults to '/metrics'
+    metrics_path: '/actuator/prometheus'
+    # scheme defaults to 'http'.
+    #after 1 sec prometheus will send request to this url and work done
+    scrape_interval: 1s
+    #target server whose metrics you have to get
+    #prometheus running on port 9090
+    static_configs:
+      - targets: ["localhost:8080"]
+        # -targets: [" 172.17.16.1:8080"]
+
+   #- job_name: "productservice"
+   #      metrics_path: '/actuator/health'
+  #      scrape_interval: 5s
+  #      static_configs:
+    #        - targets: ["localhost:8080"]
+
+
+
